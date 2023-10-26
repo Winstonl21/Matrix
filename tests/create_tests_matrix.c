@@ -14,13 +14,13 @@ START_TEST(create_test1) {
 START_TEST(create_test2) {
   matrix_t m1 = {NULL, 0, 0};  
   int result = 0;
-  result = s21_create_matrix(2147483647, 1, &m1); // MAX_INT
+  result = s21_create_matrix(2147483647, 1, &m1);
   ck_assert_int_eq(result, ERROR);
   s21_remove_matrix(&m1);
 } END_TEST
 
 START_TEST(create_test3) {
-  matrix_t m1 = {NULL, 0, 0};// тут нужно чтобы не выделалась память уже под колонки
+  matrix_t m1 = {NULL, 0, 0};
   int result = 0;
   result = s21_create_matrix(3, 2147483647, &m1);
   ck_assert_int_eq(result, ERROR);
@@ -28,7 +28,7 @@ START_TEST(create_test3) {
 } END_TEST
 
 START_TEST(create_test4) {
-  matrix_t m1 = {NULL, 0, 0};;
+  matrix_t m1 = {NULL, 0, 0};
   int result = 0;
   result = s21_create_matrix(0, 2, &m1);
   ck_assert_int_eq(result, ERROR);
@@ -44,7 +44,7 @@ START_TEST(create_test5) {
 } END_TEST
 
 START_TEST(create_test6) {
-  matrix_t *m1 = NULL; // нужносделать эту матрицу либо слишком маленькой либо слишком большой, либо внутри структуры, какой то неправильный **matrix  
+  matrix_t *m1 = NULL;  
   int result = 0;
   result = s21_create_matrix(3, 1, m1);
   ck_assert_int_eq(result, ERROR);

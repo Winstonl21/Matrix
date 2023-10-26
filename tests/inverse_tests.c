@@ -37,31 +37,31 @@ START_TEST(inverse1) {
 } END_TEST
 
 
-// START_TEST(inverse2) {
-//   matrix_t m1 = {NULL, 0, 0};
-//   matrix_t m3 = {NULL, 0, 0};
-//   int result = 0;
-//   s21_create_matrix(3, 2, &m1);
+START_TEST(inverse2) {
+  matrix_t m1 = {NULL, 0, 0};
+  matrix_t m3 = {NULL, 0, 0};
+  int result = 0;
+  s21_create_matrix(3, 2, &m1);
 
-//   result = s21_inverse(&m1, &m3);
-//   ck_assert_int_eq(result, ERROR_IN_CALC);
+  result = s21_inverse_matrix(&m1, &m3);
+  ck_assert_int_eq(result, ERROR_IN_CALC);
   
-//   s21_remove_matrix(&m1);
+  s21_remove_matrix(&m1);
 
-// } END_TEST
+} END_TEST
 
-// START_TEST(inverse3) {
-//   matrix_t m1 = {NULL, 0, 0};
-//   matrix_t *m3 = NULL;
-//   int result = 0;
-//   s21_create_matrix(3, 3, &m1);
+START_TEST(inverse3) {
+  matrix_t m1 = {NULL, 0, 0};
+  matrix_t *m3 = NULL;
+  int result = 0;
+  s21_create_matrix(3, 3, &m1);
 
-//   result = s21_inverse(&m1, m3);
-//   ck_assert_int_eq(result, ERROR);
+  result = s21_inverse_matrix(&m1, m3);
+  ck_assert_int_eq(result, ERROR);
   
-//   s21_remove_matrix(&m1);
+  s21_remove_matrix(&m1);
 
-// } END_TEST
+} END_TEST
 
 
 Suite *suite_inverse(void) {
@@ -70,8 +70,8 @@ Suite *suite_inverse(void) {
   s10 = suite_create("s21_INVERSE");
   tc10 = tcase_create("case_inverse");
   tcase_add_test(tc10, inverse1);
-//   tcase_add_test(tc10, inverse2);
-//   tcase_add_test(tc10, inverse3);
+  tcase_add_test(tc10, inverse2);
+  tcase_add_test(tc10, inverse3);
 
   suite_add_tcase(s10, tc10);
   return s10;

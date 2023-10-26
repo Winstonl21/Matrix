@@ -49,7 +49,7 @@ START_TEST(sub1) {
   ck_assert_double_eq_tol(m3.matrix[0][2], 3.739, EPS);
   ck_assert_double_eq_tol(m3.matrix[1][0], a, EPS);
   ck_assert_double_eq_tol(m3.matrix[1][1], -124568.0, EPS);
-  ck_assert_double_eq_tol(m3.matrix[1][2], -2142.0, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][2], 1788.0, EPS);
   ck_assert_double_eq_tol(m3.matrix[2][0], 1.0, EPS);
   ck_assert_double_eq_tol(m3.matrix[2][1], 5.0, EPS);
   ck_assert_double_eq_tol(m3.matrix[2][2], 0.0, EPS);

@@ -316,9 +316,10 @@ void fill_minor (matrix_t *A, matrix_t minor, int row_skip, int col_skip) {
 }
 
 int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
+  int status = ERROR;
+  if (result) {
     double tmp = 0.0;
-    int status = s21_determinant(A, &tmp);
-// проверка на result на NULL
+    status = s21_determinant(A, &tmp);
     if (status == OK && tmp != 0.0) {
         matrix_t m1 = {NULL, 0, 0};
         matrix_t m2 = {NULL, 0, 0};
@@ -330,7 +331,8 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
         s21_remove_matrix(&m1);
         s21_remove_matrix(&m2);
     }
-    return status;
+  }
+  return status;
 }
 
 

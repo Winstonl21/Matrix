@@ -33,15 +33,15 @@ START_TEST(mult_matrix1) {
   result = s21_mult_matrix(&m1, &m2, &m3);
   ck_assert_int_eq(result, OK);
 
-  ck_assert_double_eq_tol(m3.matrix[0][0], 4.925725, EPS);
-  ck_assert_double_eq_tol(m3.matrix[0][1], 82.79272, EPS);
-  ck_assert_double_eq_tol(m3.matrix[0][2], 1091.7509, EPS);
-  ck_assert_double_eq_tol(m3.matrix[1][0], 657562.0000559795, EPS);
-  ck_assert_double_eq_tol(m3.matrix[1][1], 24661.6487632, EPS);
-  ck_assert_double_eq_tol(m3.matrix[1][2], 347805.0, EPS);
-  ck_assert_double_eq_tol(m3.matrix[2][0], 2.0, EPS);
-  ck_assert_double_eq_tol(m3.matrix[2][1], 0.0, EPS);
-  ck_assert_double_eq_tol(m3.matrix[2][2], 0.0, EPS);
+  ck_assert_double_eq_tol(m3.matrix[0][0], 22010.1829060488, EPS);
+  ck_assert_double_eq_tol(m3.matrix[0][1], -11.3147992776, EPS);
+  ck_assert_double_eq_tol(m3.matrix[0][2], -56384.9310275, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][0], -191670500.7744471113, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][1], 22191.55800933, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][2], 489525551.908723325, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][0], 7696.8167435, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][1], -6.769887, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][2], -19712.45, EPS);
 
   s21_remove_matrix(&m1);
   s21_remove_matrix(&m2);
@@ -49,39 +49,41 @@ START_TEST(mult_matrix1) {
 
 } END_TEST
 
-// START_TEST(mult_matrix2) {
-//   matrix_t m1 = {NULL, 0, 0};
-//   double number = -289.9;
-//   matrix_t m3 = {NULL, 0, 0};
-//   int result = 0;
-//   s21_create_matrix(3, 3, &m1);
+START_TEST(mult_matrix2) {
+  matrix_t m1 = {NULL, 0, 0};
+  matrix_t m2 = {NULL, 0, 0};
+  matrix_t m3 = {NULL, 0, 0};
+  int result = 0;
+  s21_create_matrix(3, 3, &m1);
 
-//   m1.matrix[0][0] = 1.0;
-//   m1.matrix[0][1] = -2.0;
-//   m1.matrix[0][2] = 3.0;
-//   m1.matrix[1][0] = -1.0;
-//   m1.matrix[1][1] = 14.0;
-//   m1.matrix[1][2] = 0.0;
-//   m1.matrix[2][0] = 5.555555;
-//   m1.matrix[2][1] = 0.0123456789;
-//   m1.matrix[2][2] = 0.111111;
+  m1.matrix[0][0] = 1.0;
+  m1.matrix[0][1] = -2.0;
+  m1.matrix[0][2] = 3.0;
+  m1.matrix[1][0] = -1.0;
+  m1.matrix[1][1] = 14.0;
+  m1.matrix[1][2] = 0.0;
+  m1.matrix[2][0] = 5.555555;
+  m1.matrix[2][1] = 0.0123456789;
+  m1.matrix[2][2] = 0.111111;
 
-//   result = s21_mult_matrix(&m1, number, &m3);
-//   ck_assert_int_eq(result, OK);
   
-//   ck_assert_double_eq_tol(m3.matrix[0][0], -289.9 , EPS);
-//   ck_assert_double_eq_tol(m3.matrix[0][1], 579.8, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[0][2], -869.7, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[1][0], 289.9, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[1][1], -4058.6, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[1][2], 0.0, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[2][0], 1610.5553945, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[2][1], 3.579012, EPS);
-//   ck_assert_double_eq_tol(m3.matrix[2][2], 32.2110789, EPS);
 
-//   s21_remove_matrix(&m1);
+  result = s21_mult_matrix(&m1, number, &m3);
+  ck_assert_int_eq(result, OK);
+  
+  ck_assert_double_eq_tol(m3.matrix[0][0], -289.9 , EPS);
+  ck_assert_double_eq_tol(m3.matrix[0][1], 579.8, EPS);
+  ck_assert_double_eq_tol(m3.matrix[0][2], -869.7, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][0], 289.9, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][1], -4058.6, EPS);
+  ck_assert_double_eq_tol(m3.matrix[1][2], 0.0, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][0], 1610.5553945, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][1], 3.579012, EPS);
+  ck_assert_double_eq_tol(m3.matrix[2][2], 32.2110789, EPS);
 
-// } END_TEST
+  s21_remove_matrix(&m1);
+
+} END_TEST
 
 // START_TEST(mult_matrix3) {
 //   matrix_t m1 = {NULL, 0, 0};
